@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.alibaba.fastjson.JSON;
 import com.dzp.springframework.log.model.OperLog;
 import com.dzp.springframework.log.model.OperLogPO;
+import com.google.common.base.Throwables;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -39,7 +40,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @version: V1.0
  * @classname: com.sunshine.buddhistlife.component.log.LogAspect.java
  * @copyright: Powered By sunshine
- * @author: somnus
+ * @author: chris
  * @date: 2020-11-25 16:02:59
  */
 @Slf4j

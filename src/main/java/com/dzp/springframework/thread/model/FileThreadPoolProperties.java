@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 @PropertySource(value = "thread/thread-config.yml", factory = YamlConfigFactory.class)
 @ConfigurationProperties(prefix = "file-pool")
 public class FileThreadPoolProperties extends BaseThreadPoolProperties {
-    //
 
 
 }

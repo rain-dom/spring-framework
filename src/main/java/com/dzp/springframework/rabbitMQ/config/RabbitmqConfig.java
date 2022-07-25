@@ -1,15 +1,22 @@
 package com.dzp.springframework.rabbitMQ.config;
 
 import org.springframework.amqp.core.*;
+import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
 public class RabbitmqConfig {
+
+    @Autowired
+    RabbitTemplate rabbitTemplate;
+
 
     /**
      * 交换机名称
@@ -107,5 +114,36 @@ public class RabbitmqConfig {
     public RabbitTemplate rabbitTemplate() {
         return new RabbitTemplate();
     }
+
+
+    @PostConstruct
+    public void initRabbitTemplate() {
+        rabbitTemplate.setConfirmCallback(new RabbitTemplate.ConfirmCallback() {
+
+            /**
+             * 只要消息抵达broker就ack=true
+             * @param correlationData 当前消息唯一关联数据（id）
+             * @param b 消息是否收到
+             * @param s 失败原因
+             */
+            @Override
+            public void confirm(CorrelationData correlationData, boolean b, String s) {
+                System.out.println();
+            }
+        });
+
+        rabbitTemplate.setReturnsCallback(new RabbitTemplate.ReturnsCallback() {
+            /**
+             * 设置消息抵达队列的确认回调
+             * @param returnedMessage
+             */
+            @Override
+            public void returnedMessage(ReturnedMessage returnedMessage) {
+
+            }
+        });
+
+    }
+
 
 }

@@ -4,6 +4,7 @@ import com.dzp.springframework.transaction.entity.User;
 import com.dzp.springframework.transaction.service.impl.User1ServiceImpl;
 import com.dzp.springframework.transaction.service.impl.User2ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;

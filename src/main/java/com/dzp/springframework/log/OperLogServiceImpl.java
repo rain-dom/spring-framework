@@ -1,8 +1,8 @@
 package com.dzp.springframework.log;
 
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.sunshine.buddhistlife.component.log.model.OperLogPO;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.dzp.springframework.log.model.OperLogPO;
 import org.springframework.stereotype.Service;
 
 /**

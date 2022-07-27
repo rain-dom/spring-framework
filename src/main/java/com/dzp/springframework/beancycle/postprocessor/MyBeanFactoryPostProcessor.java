@@ -1,4 +1,4 @@
-package com.dzp.springframework.beanCircle;
+package com.dzp.springframework.beancycle.postprocessor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;

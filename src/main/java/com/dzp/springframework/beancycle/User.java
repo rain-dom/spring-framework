@@ -1,5 +1,6 @@
-package com.dzp.springframework.beanCircle;
+package com.dzp.springframework.beancycle;
 
+import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
@@ -9,7 +10,12 @@ import org.springframework.context.ApplicationContextAware;
 
 @Slf4j
 @ToString
+@Getter
 public class User implements BeanFactoryAware, BeanNameAware, ApplicationContextAware, InitializingBean, DisposableBean {
+    public User(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
 
     private String name;
     private int age;

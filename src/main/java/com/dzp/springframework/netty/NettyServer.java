@@ -59,4 +59,8 @@ public class NettyServer {
         }
     }
 
+    public static void main(String[] args) {
+        new NettyServer(8889).run();
+    }
+
 }

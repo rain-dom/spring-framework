@@ -5,6 +5,7 @@ import com.dzp.springframework.netty.dto.RpcResponse;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
@@ -12,7 +13,6 @@ import io.netty.util.AttributeKey;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.channels.SocketChannel;
 /**
  * @author shuang.kou
  * @createTime 2020年05月13日 20:48:00
@@ -84,5 +84,17 @@ public class NettyClient {
             logger.error("occur exception when connect server:", e);
         }
         return null;
+    }
+
+    public static void main(String[] args) {
+        RpcRequest rpcRequest = RpcRequest.builder()
+                .interfaceName("interface")
+                .methodName("hello").build();
+        NettyClient nettyClient = new NettyClient("127.0.0.1", 8889);
+        for (int i = 0; i < 3; i++) {
+            nettyClient.sendMessage(rpcRequest);
+        }
+        RpcResponse rpcResponse = nettyClient.sendMessage(rpcRequest);
+        System.out.println(rpcResponse.toString());
     }
 }

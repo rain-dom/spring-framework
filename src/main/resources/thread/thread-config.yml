@@ -1,0 +1,16 @@
+log-pool:
+  core-size: 1
+  max-size: 20
+  thread-name: log-pool-
+  keeplive-time: 300
+  queue-capacity: 2000
+  reject-Strategy: CALLRUNS
+
+
+file-pool:
+  core-size: 10
+  max-size: 20
+  thread-name: file-pool-
+  keeplive-time: 300
+  queue-capacity: 2000
+  reject-Strategy: CALLRUNS
